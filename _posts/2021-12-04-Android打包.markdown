@@ -2,8 +2,8 @@
 layout: post
 title:  "Android进阶之光"
 date:   2021-12-04 16:53:49
-categories: Book
-tags: Android
+categories: Android
+tags: Book
 ---
 本周购买了刘望舒的Android进阶三本书,本来想先从网上找一下资料看看写的是关于什么内容,无奈资料太少,便直接下单了.加油!
 
