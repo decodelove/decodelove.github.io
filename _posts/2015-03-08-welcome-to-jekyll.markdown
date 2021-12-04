@@ -1,25 +1,22 @@
 ---
 layout: post
-title:  "Android adb配置!"
+title:  "测试配置!"
 date:   2021-12-04 16:53:49
 categories: Android
-tags: Android packging
+tags: Android
 ---
-balabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabala
-balabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalaba
-labalabalabalabalabalabalabalabalabalabalabalabalabala
 
-balabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalabalaba
-labalabalabalabalabalabalabalabalabalabal
-abalabalabalabalabala
+这篇是用来测试一下好不好用!
+有点奇怪格式后缀明明是markdown,怎么看里面的内容不像是markdown的渲染.
+```java
+  Coding
+```
 
-{% highlight ruby %}
-def print_hi(name)
-  puts "Hi, #{name}"
-end
-print_hi('Tom')
-#=> prints 'Hi, Tom' to STDOUT.
-{% endhighlight %}
+### 这是一个标题
+###### 大写的标题
+
+
+
 
 Check out the [Jekyll docs][jekyll] for more info on how to get the most out of Jekyll. File all bugs/feature requests at [Jekyll’s GitHub repo][jekyll-gh]. If you have questions, you can ask them on [Jekyll’s dedicated Help repository][jekyll-help].
 
