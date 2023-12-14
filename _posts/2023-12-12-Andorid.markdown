@@ -1,0 +1,48 @@
+---
+layout: post
+title:  "两种关于Android Home键事件监听方式"
+date:   2023-12-13 19:53:49
+categories: Android
+tags: Android
+---
+ &nbsp;&nbsp;今天在Android14系统测试机上测试一项程序时发现有闪退情况，通过异常日志定位到原因发现是监听home键的广播注册导致的崩溃，Android12
+ 以上必须设置exported,广播动态注册的时候也必须同时设置是否支持exported.如下
+ ```java
+class HomeReceiver : BroadcastReceiver() {
+
+    private val SYSTEM_REASON = "reason";
+    private val SYSTEM_HOME_KEY = "homekey";
+    private val SYSTEM_RECENT_APPS = "recentapps";
+
+    override fun onReceive(context: Context?, intent: Intent?) {
+        val action = intent?.action
+        var reason = intent?.getStringExtra(SYSTEM_REASON)
+        val status = if(SYSTEM_RECENT_APPS == reason) true else SYSTEM_HOME_KEY == reason
+        if (status){
+            when (action) {
+                Intent.ACTION_CLOSE_SYSTEM_DIALOGS -> {
+                    Logger.getGlobal().info("广播监听:Homekey键触发${action}")
+                }
+            }
+        }
+    }
+}
+```
+
+&nbsp;&nbsp;第二种方式是通过监听Application中onTrimMemory(level)方法，如下
+```java
+public class DemoApplication extends Application {
+    @Override
+    public void onCreate() {
+        super.onCreate();
+    }
+    
+    @Override
+    public void onTrimMemory(int level) {
+        super.onTrimMemory(level);
+        if (level == application.TRIM_MEMORY_UI_HIDDEN){
+            Logger.i("home事件已被触发!");
+        }
+    }
+}
+```
